@@ -20,7 +20,11 @@
     "dialect": "postgres",
     "protocol": "postgres",
     "dialegOption": {
-      "rejectUnauthorized": false 
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false 
+      }
+     
     }
   }
 }
