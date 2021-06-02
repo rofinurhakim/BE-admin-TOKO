@@ -4,10 +4,10 @@ const jwt = require('jsonwebtoken');
 
 module.exports = (sequelize, DataTypes) => {
   const user = sequelize.define('user', {
-    fullname: DataTypes.STRING,
+    nama_lenkap: DataTypes.STRING,
+    password: DataTypes.STRING,
     email: DataTypes.STRING,
-    phone: DataTypes.STRING,
-    password: DataTypes.STRING
+    isAdmin: DataTypes.BOOLEAN
   }, {});
   user.associate = function(models) {
     // associations can be defined here
@@ -32,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
     const token = await jwt.sign({userId}, 'mamikost-key');
     const userData = await user.findOne({
       where: {id: userId},
-      attributes: ['fullname', 'email', 'phone']
+      attributes: ['nama_lengkap', 'password', 'email']
     });
     
     return {userData, token};

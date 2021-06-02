@@ -1,26 +1,36 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('users', {
+    return queryInterface.createTable('products', {
       id: {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.UUID4,
         default: Sequelize.UUID4
       },
-      nama_lengkap: {
+      nama_products: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        
       },
-      password: {
+      deskripsi: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+       
       },
-      email: {
-        type: Sequelize.STRING
+      Image: {
+        type: Sequelize.STRING,
+        allowNull: true,
       },
-      isAdmin: {
-        type: Sequelize.BOOLEAN
+      rating: {
+        type: Sequelize.INTEGER,
+
+      },
+      price: {
+        type: Sequelize.INTEGER
+      },
+      stock: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -33,6 +43,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('users');
+    return queryInterface.dropTable('products');
   }
 };
