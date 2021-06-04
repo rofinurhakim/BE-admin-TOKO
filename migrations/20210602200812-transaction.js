@@ -5,7 +5,7 @@ module.exports = {
       user_id: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.VARCHAR
+        type: Sequelize.STRING
         
       },
       status: {
@@ -13,7 +13,7 @@ module.exports = {
         
       },
       transaction_id: {
-        type: Sequelize.VARCHAR,
+        type: Sequelize.STRING,
         allowNull: false,
         primaryKey: true
        

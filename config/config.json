@@ -1,11 +1,12 @@
 {
   "development": {
     "username": "root",
-    "password": "nabillah03",
+    "password": "password",
     "database": "db_toko",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false
+    
    
   },
   "test": {

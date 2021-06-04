@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const products = sequelize.define('products', {
+  const product = sequelize.define('product', {
     id: {
         defaultValue: DataTypes.UUID4,
         type: DataTypes.UUID,
@@ -14,5 +14,5 @@ module.exports = (sequelize, DataTypes) => {
     stock: DataTypes.INTEGER
   }, {});
 
-  return products;
+  return product;
 };

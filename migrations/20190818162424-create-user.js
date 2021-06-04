@@ -5,7 +5,7 @@ module.exports = {
       id: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.UUID4,
+        type: Sequelize.UUID,
         default: Sequelize.UUID4
       },
       nama_lengkap: {

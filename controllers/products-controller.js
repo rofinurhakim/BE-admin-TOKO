@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 const Validator = require('fastest-validator');
 const errorHandler = require('../middleware/error_handler');
 const uuid = require('uuid')
-const products = require('../models/products');
+const { booking, user, dorm, product} = require('../models/');
 
 const v = new Validator()
 
@@ -13,7 +13,7 @@ exports.store = async (req, res) => {
     console.log(req.body)
 
     const Schema = {
-        'nama_product': 'string|empty:false',
+        'nama_products': 'string|empty:false',
         'deskripsi': 'string|empty:false',
         'rating': 'number',
         'price': 'number|empty:false',
@@ -29,7 +29,7 @@ exports.store = async (req, res) => {
         })
     }
 
-    const addProduct = await products.create({...req.body, id: uuid.v4()})
+    const addProduct = await product.create({...req.body, id: uuid.v4()})
 
     return res.status(201).json({
         status: 'success',
@@ -42,7 +42,7 @@ exports.store = async (req, res) => {
 exports.getall = async (req, res) => {
 
 
-    const productAll = await products.findAll()
+    const productAll = await product.findAll()
 
     return res.json({
         status: 'success',
