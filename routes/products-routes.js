@@ -7,7 +7,10 @@ const ProductController = require('../controllers/products-controller')
 app.group('/api/v1/products', router => {
 
     router.post('/', ProductController.store);
-    router.get('/', ProductController.getall)
+    router.get('/', ProductController.getall);
+    router.patch('/:id', ProductController.update)
+    router.delete('/:id',ProductController.destroy)
+   
 
   
 });

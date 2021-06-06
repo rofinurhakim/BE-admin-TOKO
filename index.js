@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 require('express-group-routes');
 const path = require('path');
+const paginate = require('express-paginate')
 
 
 
@@ -22,6 +23,7 @@ app.use(function(req, res, next) {
 });
 
 
+app.use(paginate.middleware(10, 50));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static('public'))
