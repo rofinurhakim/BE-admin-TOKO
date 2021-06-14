@@ -7,6 +7,7 @@ const { user } = require('../models');
 exports.register = async (req, res) => {
     const err = validationResult(req);
 
+    
     if (!err.isEmpty()) {
         return errorHandler(res, 422, 'Error Input', err.errors);
     }
@@ -16,7 +17,7 @@ exports.register = async (req, res) => {
 
     try {
         let userData = await user.create(
-            {...req.body, password: passwordHashed}
+            {...req.body, password: passwordHashed, id : uuid.v4}
             // Object.assign(req.body, {password: passwordHashed})
         );
         if (userData) {

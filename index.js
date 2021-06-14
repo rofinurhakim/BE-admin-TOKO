@@ -7,8 +7,7 @@ const paginate = require('express-paginate')
 
 
 const AuthRoutes = require('./routes/auth-routes');
-const DormRoutes = require('./routes/dorm-routes');
-const BookRoutes = require('./routes/book-routes')
+
 const ProductRoutes = require('./routes/products-routes');
 const TransactiondetailRoutes = require('./routes/transaction_detail-routes')
 const TransactionRoutes = require('./routes/transaction-routes')
@@ -18,7 +17,7 @@ const PORT = process.env.PORT || 3000;
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-    res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
+    res.header("Access-Control-Allow-Headers", 'Content-Type, Authorization');
     next();
 });
 
@@ -28,8 +27,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static('public'))
 app.use(AuthRoutes);
-app.use(DormRoutes);
-app.use(BookRoutes);
+
 app.use(ProductRoutes);
 app.use(TransactiondetailRoutes);
 app.use(TransactionRoutes);

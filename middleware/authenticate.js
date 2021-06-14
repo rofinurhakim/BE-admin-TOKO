@@ -1,10 +1,10 @@
-const jwt = require('express-jwt');
+const jwt = require("express-jwt");
 
-const errorHandler = require('./error_handler');
+const errorHandler = require("./error_handler");
 
-exports.authorize = jwt({secret: 'mamikost-key'});
+exports.authorize = jwt({ secret: "#$et@$^asfq$%$b^^^qtat$" });
 exports.handleAuthError = (err, req, res, next) => {
-    if (err.name === "UnauthorizedError") {
-        return errorHandler(res, 401, err.message, '');
-    }
-}
+  if (err.name === "Unauthorized Error") {
+    return errorHandler(res, 401, err.message, "");
+  }
+};
