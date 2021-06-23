@@ -1,14 +1,24 @@
-'use strict';
+"use strict";
 module.exports = (sequelize, DataTypes) => {
-  const transaction = sequelize.define('transaction', {
-    userId: {
-        defaultValue: DataTypes.UUID,
+  const transactions = sequelize.define(
+    "transaction",
+    {
+      transaction_id: {
+        defaultValue: DataTypes.UUID4,
         type: DataTypes.UUID,
-        primaryKey: true
+        primaryKey: true,
+      },
+      user_id: DataTypes.STRING,
+      status: DataTypes.INTEGER,
     },
-    status: DataTypes.INTEGER,
-   
-  }, {});
-
-  return transaction;
+    {}
+  );
+  transactions.associate = function(models) {
+    // associations can be defined here
+    transactions.belongsTo(models.user, {
+      as: 'userData',
+      foreignKey: 'user_id',
+    });
+  };
+  return transactions;
 };

@@ -1,32 +1,27 @@
-'use strict';
+''use strict';
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('transaction_detail', {
+    return queryInterface.createTable('transaction_details', {
       id: {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.UUID,
         default: Sequelize.UUID4
       },
-      products_id: {
+      product_id: {
         type: Sequelize.STRING,
         allowNull: false,
-        primaryKey:true
-        
       },
       transaction_id: {
         type: Sequelize.STRING,
-        allowNull: false,
-        primaryKey: true
-       
+        allowNull: false,       
       },
       qty: {
         type: Sequelize.INTEGER,
-        
       },
       price: {
         type: Sequelize.INTEGER,
-
       },
       totalPrice: {
         type: Sequelize.INTEGER
@@ -41,7 +36,8 @@ module.exports = {
       }
     });
   },
+
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('transaction_detail');
+    return queryInterface.dropTable('transaction_details');
   }
 };

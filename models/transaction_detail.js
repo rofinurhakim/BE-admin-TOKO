@@ -1,17 +1,25 @@
-'use strict';
+  
+"use strict";
 module.exports = (sequelize, DataTypes) => {
-  const transactiondetail = sequelize.define('transaction_detail', {
-    id: {
-        defaultValue: DataTypes.UUID4,
+  const transaction_detail = sequelize.define(
+    "transaction_detail",
+    {
+      
+      id: {
+        primaryKey: true,
         type: DataTypes.UUID,
-        primaryKey: true
+        default: DataTypes.UUID4
+      },
+      product_id: DataTypes.STRING,
+      transaction_id: DataTypes.STRING,
+      qty: DataTypes.INTEGER,
+      price: DataTypes.INTEGER,
+      totalPrice: DataTypes.INTEGER
     },
-    productsId: DataTypes.STRING,
-    transactionId: DataTypes.STRING,
-    qty: DataTypes.INTEGER,
-    price: DataTypes.INTEGER,
-    totalPrice: DataTypes.INTEGER
-  }, {});
-
-  return transactiondetail;
+    {
+        tableName: 'transaction_detail',
+    }
+  );
+ 
+  return transaction_detail;
 };

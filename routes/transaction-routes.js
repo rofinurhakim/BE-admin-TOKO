@@ -1,15 +1,15 @@
-const express = require('express');
-require('express-group-routes');
+const express = require("express");
+require("express-group-routes");
 const app = express();
-const auth = require('../middleware/authenticate');
-const TransactionController = require('../controllers/transaction-controller')
+const auth = require("../middleware/authenticate");
+const upload = require("../middleware/upload");
 
-app.group('/api/v1/transaction', router => {
+const TransactionController = require("../controllers/transaction-controller");
 
-    router.post('/', TransactionController.store);
-    router.get('/', TransactionController.getall)
-
-  
+app.group("/api/v1/transaction", (router) => {
+  router.post("/", TransactionController.store);
+  router.get("/", TransactionController.getById)
+  router.get("/detail", TransactionController.getByIdTransaction)
 });
 
 module.exports = app;
