@@ -9,7 +9,7 @@ const paginate = require('express-paginate')
 const AuthRoutes = require('./routes/auth-routes');
 
 const ProductRoutes = require('./routes/products-routes');
-const TransactiondetailRoutes = require('./routes/transaction_detail-routes')
+
 const TransactionRoutes = require('./routes/transaction-routes')
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -29,7 +29,7 @@ app.use(express.static('public'))
 app.use(AuthRoutes);
 
 app.use(ProductRoutes);
-app.use(TransactiondetailRoutes);
+
 app.use(TransactionRoutes);
 
 app.listen(PORT, (err) => {

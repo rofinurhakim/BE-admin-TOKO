@@ -1,31 +1,34 @@
-''use strict';
-
+'use strict';
+//pake yg ini ya 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('transaction_details', {
+    return queryInterface.createTable('transactions_details', {
       id: {
-        allowNull: false,
         primaryKey: true,
         type: Sequelize.UUID,
         default: Sequelize.UUID4
       },
+
       product_id: {
-        type: Sequelize.STRING,
-        allowNull: false,
+        type: Sequelize.STRING
       },
+
       transaction_id: {
-        type: Sequelize.STRING,
-        allowNull: false,       
+        type: Sequelize.STRING
       },
+
       qty: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       },
+
       price: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       },
+
       totalPrice: {
         type: Sequelize.INTEGER
       },
+     
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -36,8 +39,7 @@ module.exports = {
       }
     });
   },
-
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('transaction_details');
+    return queryInterface.dropTable('transactions_details');
   }
 };

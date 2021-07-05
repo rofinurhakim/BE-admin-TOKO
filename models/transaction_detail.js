@@ -1,25 +1,30 @@
-  
 "use strict";
 module.exports = (sequelize, DataTypes) => {
-  const transaction_detail = sequelize.define(
-    "transaction_detail",
+  const transactions_details = sequelize.define(
+    "transactions_details", // ini nama tabelnya ya sodara2 coba sesuaikan
     {
-      
-      id: {
-        primaryKey: true,
+      transaction_id: {
+        defaultValue: DataTypes.UUID4,
         type: DataTypes.UUID,
-        default: DataTypes.UUID4
       },
       product_id: DataTypes.STRING,
-      transaction_id: DataTypes.STRING,
-      qty: DataTypes.INTEGER,
+      qty:DataTypes.INTEGER,
       price: DataTypes.INTEGER,
       totalPrice: DataTypes.INTEGER
     },
-    {
-        tableName: 'transaction_detail',
-    }
+    {}
   );
- 
-  return transaction_detail;
+
+  // line ini saya comment dlu ya
+  // transactions_details.associate = function(models) {
+  //   transactions.belongsTo(models.user, {
+  //     as: 'userData',
+  //     foreignKey: 'user_id',
+  //   });
+  // };
+  return transactions_details;
 };
+
+
+
+

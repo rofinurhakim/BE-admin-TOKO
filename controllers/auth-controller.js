@@ -9,6 +9,7 @@ const errorHandler = require('../middleware/error_handler');
 const { user } = require('../models');
 const v = new Validator();
 
+
 exports.register = async (req, res) => {
     const err = validationResult(req);
 
@@ -33,18 +34,18 @@ exports.register = async (req, res) => {
     } catch (err) {
         return errorHandler(res, 500, 'Internal Server Error', err);
     }
+    const addUsers = await product.create({
+      nama_lengkap: req.body.nama_lengkap,
+      email: req.body.email,
+      password: req.body.password,
+      id: uuid.v4(),
+    });
+  
+    return res.status(201).json({
+      status: "success",
+      data: addUsers,
+    });  
 
-    
-     const addUsers = await user.create({
-        nama_lengkap: req.body.nama_lengkap,
-        password: req.body.password,
-        email: req.body.email,
-        id: uuid.v4(),
-  });
-        return res.status(201).json({
-            status: "success",
-            data: addUsers,
-     });
 }
 
 exports.login = async (req, res) => {

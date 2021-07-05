@@ -36,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
     const token = await jwt.sign({ userId }, "#$et@$^asfq$%$b^^^qtat$");
     const userData = await user.findOne({
       where: { id: userId },
-      attributes: ["nama_lengkap", "email", "password"],
+      attributes: ["nama_lengkap", "email", "id"],
     });
 
     return { userData, token };
